@@ -192,7 +192,7 @@ def prof3d(pos_mut,l_dist_3d, profile):
     for i in l_dist_3d:
         pos_res = int(i[0][1:])
         avoid_res=np.arange(-2,3)+pos_mut
-        if pos_res not in avoid_res:  profiles.append(list(profile[pos_res].values())[:-1])       
+        if pos_res not in avoid_res:  profiles.append(list(profile[pos_res].values())[:-1])    
     unified_prof3d=[x for l in profiles for x in l]
     return unified_prof3d
 
@@ -205,7 +205,8 @@ from warnings import warn
 # profile functions
 aa1 = pandas.Index(list('ACDEFGHIKLMNPQRSTVWY')) # standard 20 amino acids
 def load_profile(path_or_file):
-	df = pandas.read_csv(path_or_file, sep=None, engine='python') # python engine needed for automatic detection of separator
+	df = pandas.read_csv(path_or_file, sep=None, engine='python') 
+     # python engine needed for automatic detection of separator
 
 	# check columns
 	missing_aa = aa1.difference(df.columns)

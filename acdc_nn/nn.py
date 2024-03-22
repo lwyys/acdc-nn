@@ -5,9 +5,9 @@ import tensorflow
 tensorflow.get_logger().setLevel('ERROR')
 
 #from tensorflow import keras
-from tensorflow.keras import layers
+from tensorflow.python.keras import layers
 #from tensorflow.keras.layers import Lambda, Dense, Input, Dropout, Activation, Flatten, BatchNormalization, Dropout
-from tensorflow.keras.models import Sequential, Model
+from tensorflow.python.keras.models import Sequential, Model
 #from tensorflow.keras import backend as K
 
 import math
@@ -87,9 +87,9 @@ def build_acdc_seq(num_H, d):
     i = 1
     for hidden in num_H:
         net.add(layers.Dense(hidden, activation="relu", name="Dense_"+str(i)))
-        net.add(layers.Dropout(d)) #0.35
+        net.add(layers.Dropout(d)) #`0.35
         i+=1
-    net.add(layers.Dense(1, activation='linear', name="Dense_"+str(i)))
+    net.add(layers.Dense(1, activation='linear', name="Dense_"+str(i))) 
     
     
     net_dir = net(conc_dir)
